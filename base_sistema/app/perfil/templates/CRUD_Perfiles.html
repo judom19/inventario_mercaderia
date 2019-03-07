@@ -1,0 +1,30 @@
+
+{%extends 'empresas_index.html' %}{# heredando de base_menu #}
+{% load crispy_forms_tags %}
+{% block content %}
+		<div  class="row col-md-5 offset-1">
+			
+			<div  id="formularios" class="fondo ">
+			
+				<form method="post">
+					{% csrf_token %}{# token de seguridad #}
+			
+
+				<div  id="formularios" class="fondo ">
+					<div class="card-header"> 
+						<h4>Crear Contacto de Usuario</h4>
+					</div>
+					{{form|crispy}}
+					<div class="card-footer text-muted">
+						<p> Asegurese de guardar correctamente los datos...</p>
+					  </div>
+					  <br>
+						<button type="submit" class="botones btn btn-primary btn-block">Registrar</button>
+						
+				</div>
+				</form>
+				
+    		</div>
+		</div>
+	   
+{% endblock content %}

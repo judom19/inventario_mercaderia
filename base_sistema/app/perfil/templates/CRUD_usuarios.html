@@ -1,0 +1,42 @@
+
+{%extends 'index_perfil.html' %}{# heredando de base_menu #}
+{% load crispy_forms_tags %}
+
+{% block content %}
+		<div  class="col-md-5 offset-1">
+			
+		<div  id="formularios" class="fondo ">
+			
+			<form method="post">
+				{% csrf_token %}{# token de seguridad #}
+		
+
+				<form action="/action_page.php">
+				<div class="container ">
+					<h1><center>Registrar Usuario</center> </h1>
+					<p>Por favor, rellene este formulario para crear una cuenta usuario.</p>
+					<hr>
+
+					
+
+				<fieldset>
+				
+					
+					<div class="form-group">
+					{{form|crispy}}
+					</div>
+					<hr>
+					<p>By creating an account you agree to our <a href="#">Terminos y privacidad</a>.</p>
+
+					<button type="submit" class="botones btn btn-primary btn-block ">Registrar</button>
+				</div>
+				
+				<!-- <div class="container signin">
+					<p>Already have an account? <a href="#">Sign in</a>.</p>
+				</div> -->
+			</form>
+			</div>
+    		</div>
+		</div>
+	   
+{% endblock content %}

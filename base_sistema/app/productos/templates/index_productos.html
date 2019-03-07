@@ -1,0 +1,52 @@
+
+{% extends 'base/base_menu.html' %}
+		
+		{% block title %}Productos{% endblock %}
+
+ 
+{% block side_bar %}
+
+<div class="offset-2">
+<ul class="nav nav-pills flex-column  col-md-3 ">
+    <li class="nav-item border border-secondary">
+        <a class="nav-link active border border-secondary" href="#"><h5><center> Productos</center></h5></a>
+    </li>
+    <li class="nav-item border border-secondary">
+        <a class="dropdown-item" href="{% url 'productos:productos_listar' %}">Catalogo de Productos</a>
+    </li>    
+    
+    <li class="nav-item border border-secondary">
+        <a class="dropdown-item " href="#">Ver por categorias</a>
+    </li>
+    <li class="nav-item border border-secondary">
+        <a class="dropdown-item" href="{% url 'productos:productos_nuevo' %}">Nuevo articulo</a>
+    </li>
+      </div>
+    
+  </ul>
+  
+</div>
+
+
+	
+        
+{% endblock side_bar%}
+
+
+{% block content %}
+<div class="jumbotron col-md-8  offset-1">
+  <h4 class="display-4">Consulta de Productos</h4>
+  <li class="lead">Como puedes encontrar nuesto manual de usuario.</li>
+  <hr class="my-4">
+  <li class="lead">Si esta logeado recuerda cerrar secion al terminar tu trabajo.</li>
+  <br>
+  <p class="lead">
+    <a class="botones btn btn-primary btn-lg" href="#" role="button">Leer mas...</a>
+  </p>
+</div>
+<style>
+.jumbotron{
+    border-radius: 10px;
+}
+</style>
+{% endblock content %}

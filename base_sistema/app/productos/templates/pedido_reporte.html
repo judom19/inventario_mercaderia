@@ -1,0 +1,71 @@
+{% extends 'index_inventario.html' %}
+
+{% block content %}
+
+<table class="table  table-sm table-hover table-responsive col-md-9  offset-1" >
+    <thead>
+      <tr class="table-primary">
+                
+                        <td>Codigo </td>
+                        <td>Producto</td>
+                        <td>Fecha De Pedido</td>
+                        <td>Unidades/Pedidas</td>
+                        
+                        <td>Opcion 1</td>
+                        <td>Opcion 2</td>
+                        
+
+                        
+                     </tr>
+                 </thead>
+     
+           
+            <tbody>
+                {% if object_list%}
+                {% for pedido in object_list%}
+                <tr class="text-center"">
+                    <td> {{pedido.producto_a_pedir.id}}</td>{# id del pedido de cada producto y no del articulo #}
+                    <td> {{pedido.producto_a_pedir}}</td>
+                    <td> {{pedido.fecha_compra}}</td>
+                    <td> {{pedido.cantidad}}   </td>
+                    <td> <a class="botones btn btn-primary" href="{% url 'productos:pedido_edit' pedido.id%}">Editar</a>
+                   </td>
+                   <td>
+                        <a class="botones btn btn-danger" href="{% url 'productos:pedido_delete_producto' pedido.id%}">Eliminar</a>
+
+                   </td>
+                  
+                </tr>
+                  <style>
+                  .text-center {text-align: center} /*For center align*/
+                  </style>
+                    
+               
+
+                {%endfor%}
+                {%else%}
+                <h1>No hay ningun Producto en pedidos</h1>
+                 <td>vacio</td>
+                 <td>vacio</td>
+                 <td>vacio</td>
+                 <td>vacio</td>
+                 <td>vacio</td>
+                
+                 
+                     
+                {%endif%}
+            </tbody>
+        </table>
+        
+                <div class="col-md-9  offset-8">
+                     <td>
+                        <a class="botones btn btn-success" href="{% url 'productos:pedido_nuevo' %}">Nuevo Producto</a>
+                     </td>
+                      <a class="botones btn btn-primary" href="{% url 'pedido_pdf' %}">Generar Reporte</a>
+                 
+            
+                 </div>
+         
+    </div>    
+</div>
+{% endblock content %}

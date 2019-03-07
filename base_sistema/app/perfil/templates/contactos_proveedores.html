@@ -1,0 +1,64 @@
+{% extends 'empresas_index.html' %}
+
+{% block content %}
+<div class="jumbotron col-md-8  offset-1">
+        <h1 class="display-5"><center> <strong> Consulta de contactos de proveedores</strong></center></h1>
+        <br>
+        <table class="table  table-sm table-hover table-responsive " >
+                <thead>
+                    <tr class="table-primary">
+                        <th>Id</th>
+                    	<th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Usuario</th>
+                        <th>Empresa</th>
+                        <th>NIT</td>
+                        <th>Telefono</th>
+                        <th>Direccion</th>
+                       
+                        
+                     </tr>
+                 </thead>
+     
+           
+            <tbody>
+                    {% if proveedores%}
+                    {% for proveedor in proveedores%}
+                <tr>
+                    <td> {{proveedor.id}}</td>
+                    <td> {{proveedor.usuario.first_name}}</td>
+                    <td> {{proveedor.usuario.last_name}}</td>
+                    <td> {{proveedor.usuario.username}}</td>
+                    <td> {{proveedor.empresa_proveedor.nombre_empresa}}</td>
+                    <td> {{proveedor.nit}}</td>
+                    <td> {{proveedor.telefono}}</td>
+                    <td> {{proveedor.direccion}}</td>
+                    
+                   
+                    
+                  
+                </tr>
+               
+
+                {%endfor%}
+                {%else%}
+                <div class="container col-md-8  offset-1">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat molestiae commodi doloribus fugiat sit blanditiis neque, exercitationem doloremque quod facilis accusamus asperiores, nobis ducimus distinctio saepe assumenda hic amet numquam.
+                </div>
+                    
+                {%endif%}
+            </tbody>
+            <div class="">
+                    <td>
+                    
+                    <a class="botones btn btn-primary" href="{% url 'perfiles_pdf' %}">Generar Reporte</a>
+                    </td>
+                   <td>
+                        <a class="botones btn btn-success" href="{% url 'perfil:proveedores_crear' %}">Crear Contacto</a>
+                   </td>
+                </div>
+        
+        </table>
+
+    </div>
+{% endblock content %}

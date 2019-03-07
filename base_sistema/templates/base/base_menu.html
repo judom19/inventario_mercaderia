@@ -1,0 +1,121 @@
+<!--  -->
+
+
+  {% load staticfiles %}
+    <!DOCTYPE html>
+    <html >
+    	<head>
+    		<meta charset="utf-8">
+				<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+				<link rel="stylesheet" href="{% static 'css/base_menu.css' %}">
+				<link rel="stylesheet" href="{% static 'fondo_forms.css' %}">
+
+				<title>
+
+        {% block title %}Inventario de mercaderia{% endblock %}
+		
+			</title>
+			 </head>
+			 <body>
+				
+			{% block header %}
+
+			{% endblock header %}
+
+			{% block nav_bar %} 
+		
+	  <nav  class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+		<a class="navbar-brand" href="{% url 'home' %}"><strong> Sistema de Inventarios</strong></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+	  
+		<div class="collapse navbar-collapse" id="navbarColor01">
+
+		  <ul class="navbar-nav mr-auto">
+
+			<li class="nav-item ">
+			  <a class="nav-link" href="{% url 'perfil:empresas_index' %}"> <strong>Empresas</strong><span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="{% url 'productos:index_productos' %}"><strong>Mercaderia</strong></a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="{% url 'productos:inventario_view' %}"><strong>Control de Inventarios</strong></a>
+			</li>
+			<li class="nav-item" >
+				<a class="nav-link" href="{% url 'perfil:index' %}"><strong>Usuarios</strong></a>
+			</li>
+
+			<li class="nav-item">
+			  <a class="nav-link" href="{% url 'logout' %}"><strong>Salir</strong></a>
+			</li>
+		  </ul>
+		  <form class="form-inline my-2 my-lg-0">
+			<input class="botones form-control mr-sm-2" type="search" name="busqueda" placeholder="Buscar por palabra"  required>
+			<button class="botones btn btn-secondary my-2 my-sm-0" type="submit" >BUSCAR</button>
+		  </form>
+		</div>
+		</nav>
+		<br>
+		<br>
+		<br>
+		<br>
+		{% if messages %}
+		{% for message in messages %}
+		<div id="msg" class="alert alert-info ">
+				{{message}}
+			<br>
+			{% endfor %}
+		</div>
+		
+		{% endif %}	  
+		<script>
+		setTimeout (function () {
+            document.querySelector('#msg').remove();
+        },3000);
+
+		</script>
+		 <div class="container row">	<!--TODO EL SIDE BAR Y EL CONTENIDO IRAN DENTRO DE UN DIV DEL ARCHIVO BASE -->
+				<div class="row">
+						
+		{% endblock nav_bar%}
+
+		{% block side_bar %}
+		
+		{% endblock side_bar %}
+		
+		{% block content %}
+	
+		 {% endblock content %} 
+		 </div>
+
+		</div>
+		<br>
+		<br>
+		<br>
+	
+
+		{% block footer %} 
+	<div id="footer" class="container-fluid fixed-bottom">
+		<nav id="navbar-example2" class="navbar navbar-light bg-light">
+				<a class="navbar-brand" href="#"><strong><h5> Creado por: Julio Dominguez</h5></strong></a>
+				<ul class="nav nav-pills">
+					<li class="nav-item">
+						<a class="nav-link" href="#fat">@jdomcanal</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#mdo">Jdomcanal</a>
+					</li>
+					
+			</div>
+			{% endblock footer %}
+
+			
+
+	</body>
+	
+	
+	
+		
+	</html>

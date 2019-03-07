@@ -1,0 +1,89 @@
+{% extends 'empresas_index.html' %}
+
+
+{% block content %}
+
+
+<table class="table table-sm table-hover table-responsive col-md-8  offset-1" >
+    <thead>
+      <tr class="table-primary">
+        
+        <th>Id</t>
+        <th>NOMBRE</th>
+        <th>NIT</td>
+        <th>TELEFONO</th>
+        <th>CONTACTO EMAIL</th>
+        <th>Opcion 1</th>
+        <th>Opcion 2</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        
+          {% if object_list %}
+    {% for empresa in object_list %}
+    <tr>
+        <td> {{empresa.id}}</td>
+        <td> {{empresa.nombre_empresa|upper}}</td>
+        <td> {{empresa.nit}}</td>
+        <td> {{empresa.telefono}}   </td>
+        <td> {{empresa.contacto_email}}</td>
+       
+        <td>
+          <a class="botones btn btn-primary" href="{% url 'perfil:empresas_edit' empresa.id%}">Editar</a>
+        </td>
+        <td>
+            <a class="botones btn btn-danger" href="{% url 'perfil:empresas_delete' empresa.id%}">Eliminar</a>
+
+        </td>
+        
+      
+    </tr>
+   
+
+    {%endfor%}
+    {%else%}
+    <h1>No hay ningun Usuario Registrado</h1>
+    <td>vacio</td>
+     <td>vacio</td>
+     <td>vacio</td>
+     <td>vacio</td>
+     <td>vacio</td>
+                    
+         
+    {%endif%}
+</tbody>
+</table>
+
+
+
+
+  {% if is_paginated %}
+<div class="col md-3 offset-4">
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+      <li  class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">ANTERIOR</a></li>
+    {% else %}
+      <li class="disabled page-item" > <span class="page-link">ANTERIOR</span></li>
+    {% endif %}
+    {% for i in paginator.page_range %}
+      {% if page_obj.number == i %}
+        <li class="active page-item"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}  
+        <li><a class="page-link " href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+      <li><a class="page-link " href="?page={{ page_obj.next_page_number }}">SIGUIENTE</a></li>
+    {% else %}
+    <li class="disabled page-item" > <span class="page-link">SIGUIENTE</span></li>
+    {% endif %}
+  </ul>
+</nav>
+</div>
+{% endif %}
+
+  
+          
+{% endblock content %}

@@ -1,0 +1,36 @@
+
+
+{% extends 'base/base.html' %}
+
+
+ 
+{% block title %}Haz cerrado sesion{% endblock %}
+ 	{%load staticfiles%}
+	{%block extrahead %}
+	<!-- <link rel="stylesheet" href="{% static 'css/login.css' %}">   -->
+	{% endblock extrahead %}
+
+ 
+{% block content %}
+
+		<div class="jumbotron col-md-8  offset-2">
+	       
+		
+				<h2>Sesion Cerrada</h2>
+				<li class="lead">Como puedes encontrar nuesto manual de usuario.</li>
+				<hr class="my-4">
+				<li class="lead">Si esta logeado recuerda cerrar secion al terminar tu trabajo.</li>
+				<br>
+				<div class="wrapper">
+				<a href="{% url 'login' %}" class="btn btn-primary">Iniciar Sesion</a> 
+			
+		        
+		
+		<style>
+			.jumbotron{
+				border-radius: 10px;
+			}
+		</style>      
+		</div>
+	    
+{% endblock %}

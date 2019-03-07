@@ -1,0 +1,135 @@
+
+{% extends 'index_productos.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %} 
+{% block extraheader %}
+<link rel="stylesheet" href="{% static 'css/filtro.css' %}">
+<script src="{% static  'Jquery/jquery-1.12.4.js' %}"></script>
+<script src="{% static  'Jquery/datatables.min.js' %}"></script>
+<script src="{% static  'Jquery/filtro.js' %}"></script>
+
+{% endblock extraheader %}
+
+{% block content %} 
+
+
+
+			
+		<div  id="formularios" class="fondo col-md-4 offset-1">
+				<div class="card-header"> 
+                    <h4>Buscar articulos</h4>
+                </div>
+            <form method="get">
+                
+                {{filter.form.id|as_crispy_field }}
+                <small id="helpId" class="text-muted">Buscar por ID de articulo</small>
+                <br>
+                <!-- {{ filter.form.empresa_proveedor|as_crispy_field }}
+                <small id="helpId" class="text-muted">Seleccionar busqueda por empresa</small>
+                <br> -->
+                {{ filter.form.categoria}}
+                <small id="helpId" class="text-muted">Seleccionar busqueda por categoria</small>
+                <br><br>
+                <button class="botones btn-primary btn-block"type="submit">Buscar</button>
+            </form>
+        </div>
+
+        <div  class="offset-1">
+                <div class="card" style="width: 23rem;">
+                        <div class="card-body">
+                                <div class="botones p-3 mb-2 bg-light text-black-50">
+                                        <h5 class="card-title text-center">Listado de Articulos</h5>
+                                </div>
+                         
+                                <div class="container">
+                                        <div class="row">
+                                            <div class="col-sm-1 offset-1 botones badge 
+                                            border-primary">
+                                                <h5 > 
+                                                  ID
+                                                </h5>
+                                            </div>
+                                            
+                                            <div class="col-md-6 offset-1 botones badge 
+                                            border-primary ">
+                                                <h5 class="text-center">
+                                                   ARTICULO
+                                                </h5>
+                                            </div>
+                                            <div class="col-md-2 offset-1 botones badge 
+                                            border-primary">
+                                                <h5>
+                                                    STOCK
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                        </div>
+                      </div>
+            {% if object_list %}
+            {% for producto in filter.qs %}
+            <div class="card" style="width: 23rem;">
+                
+                    <!-- <img src="..." class="card-img-top" alt="..."> -->
+                    <div class="card-body">
+                        
+                        <ul class="list-group-flush">
+                            <!-- <div class="container"> -->
+                                    <div class="row">
+                                        <div class="col-sm-1 botones badge badge-light
+                                        border-primary"">
+                                            <h5 > 
+                                                {{producto.id}}
+                                            </h5>
+                                        </div>
+                                        
+                                        <div class="col-md-8 offset-1 botones badge badge-light
+                                        border-primary"">
+                                            <h5 class="text-center">
+                                                {{producto.nombre}}
+                                            </h5>
+                                        </div>
+                                        <div class="col-md-1 offset-1 botones badge badge-light
+                                        border-primary"">
+                                            <h5>
+                                                {{producto.inventario}}
+                                            </h5>
+                                        </div>
+                                    </div>
+                            </div>
+                                
+                               
+                            </ul>
+                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                    </div>
+              
+   
+            {% endfor %}
+            {% else %}
+            <div class="card" style="width: 23rem;">
+                
+                    <!-- <img src="..." class="card-img-top" alt="..."> -->
+                    <div class="card-body">
+                        
+                        <ul class="list-group">
+                            <div class="container">
+                                    <div class="row">
+                                        <div class="col-md">
+                                            <h5 class="text-center"> 
+                                              No hay resultados que mostrar
+                                            </h5>
+                                        </div>
+                                        
+                                   </div>
+                                
+                                
+                            </ul>
+                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                    </div>
+                    
+            {% endif %}
+        </div> 
+    
+  
+
+{% endblock content %}

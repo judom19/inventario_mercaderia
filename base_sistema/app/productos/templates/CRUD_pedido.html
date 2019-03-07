@@ -1,0 +1,19 @@
+{%extends 'index_inventario.html' %}{# heredando de base_menu #}
+{% block content %}
+<div  class="col-md-5 offset-1">
+			
+		<div  id="formularios" class="fondo ">
+				<div class="card-header"> 
+                        <h4>Pedido</h4>
+                    </div>
+		    <form method="post">
+		    	{% csrf_token %}
+				{{ form.as_p }}
+				
+
+				<button class="botones btn-primary btn-block"type="submit">Guardar</button>
+				
+		    </form>
+		</div>     
+</div>    
+{% endblock content %}

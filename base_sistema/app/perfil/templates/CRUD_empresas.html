@@ -1,0 +1,27 @@
+{%extends 'empresas_index.html' %}
+{% load crispy_forms_tags %}
+
+{% load staticfiles %}
+
+  {%block content%}
+		
+	<div  class="col-md-6 offset-2">
+			
+		<div  id="formularios" class="fondo ">
+				<div class="card-header"> 
+                        <h4>Empresa</h4>
+                    </div>
+			<form method="post" class="card-body">
+				{% csrf_token %}
+				{{form|crispy}}
+
+				<div class="container">
+					<button  type="submit" class="botones btn btn-primary btn-block">Guardar</button>
+				</div>
+			</form>
+			
+						
+		</div>
+				
+	</div>
+{% endblock content %}

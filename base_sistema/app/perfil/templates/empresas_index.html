@@ -1,0 +1,47 @@
+
+{% extends 'base/base_menu.html' %}
+{% load staticfiles %}
+	
+{% block title %}Empresas{% endblock %}
+{% block side_bar %}
+<div class="offset-2">
+<ul class="nav nav-pills flex-column  col-md-3 ">
+    <li class="nav-item border border-secondary">
+        <a class="nav-link active border border-secondary" href="#"><h5><center> Empresas</center></h5></a>
+    </li>
+    <li class="nav-item border border-secondary">
+        <a class="dropdown-item" href="{% url 'perfil:empresas_list' %}">Listado de Empresas</a>
+    </li>    
+    <li class="nav-item border border-secondary">
+        <a class="dropdown-item " href="{% url 'perfil:empresa' %}">Registrar Empresa</a>
+    </li>
+    <li class="nav-item border border-secondary">
+        <a class="dropdown-item " href="{% url 'perfil:proveedores_list' %}">Contacto de Proveedores</a>
+    </li>
+    <li class="nav-item border border-secondary">
+        <a class="dropdown-item" href="{% url 'productos:categorias_list' %}">Listado De Categorias</a>
+    </li>
+      </div>
+    
+  </ul>
+  
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron col-md-8  offset-1">
+  <h4 class="display-4">Consulta de empresas y contactos!</h4>
+  <li class="lead">Como puedes encontrar nuesto manual de usuario.</li>
+  <hr class="my-4">
+  <li class="lead">Si esta logeado recuerda cerrar secion al terminar tu trabajo.</li>
+  <br>
+  <p class="lead">
+    <a class="botones btn btn-primary btn-lg" href="#" role="button">Leer mas...</a>
+  </p>
+</div>
+<style>
+.jumbotron{
+    border-radius: 10px;
+}
+</style>
+{% endblock content %}

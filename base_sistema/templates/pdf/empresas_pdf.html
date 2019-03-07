@@ -1,0 +1,53 @@
+
+{% block content %}
+
+
+<table class="table table-sm table-hover table-responsive col-md-8  offset-1" >
+    <thead>
+      <tr class="table-primary">
+        
+        <th>Id</t>
+        <th>NOMBRE</th>
+        <th>NIT</td>
+        <th>TELEFONO</th>
+        <th>CONTACTO EMAIL</th>
+     
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        
+          {% if empresas %}
+    {% for empresa in empresas %}
+    <tr>
+        <td> <center>{{empresa.id}}</center></td>
+        <td> <center>{{empresa.nombre_empresa}}</center></td>
+        <td> <center>{{empresa.nit}}</center></td>
+        <td> <center>{{empresa.telefono}} </center>  </td>
+        <td><center> {{empresa.contacto_email}}</center></td>
+       
+       
+      
+    </tr>
+   
+
+    {%endfor%}
+    {%else%}
+    <h1>No hay ningun Usuario Registrado</h1>
+    <td>vacio</td>
+     <td>vacio</td>
+     <td>vacio</td>
+     <td>vacio</td>
+     <td>vacio</td>
+                    
+         
+    {%endif%}
+</tbody>
+</table>
+
+
+
+
+  
+          
+{% endblock content %}
