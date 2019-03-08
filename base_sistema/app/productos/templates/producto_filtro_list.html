@@ -21,14 +21,15 @@
                 </div>
             <form method="get">
                 
-                {{filter.form.id|as_crispy_field }}
-                <small id="helpId" class="text-muted">Buscar por id de articulo</small>
+                {% comment %} {{filter.form.id|as_crispy_field }}
+                <small id="helpId" class="text-muted">Buscar por id de articulo</small> {% endcomment %}
                 <br>
                 <!-- {{ filter.form.empresa_proveedor|as_crispy_field }}
                 <small id="helpId" class="text-muted">Seleccionar busqueda por empresa</small>
                 <br> -->
-                {{ filter.form.categoria}}
                 <small id="helpId" class="text-muted">Seleccionar busqueda por categorias</small>
+                <br><br>
+                {{ filter.form.categoria}}
                 <br><br>
                 <button class="botones btn-primary btn-block"type="submit">Buscar</button>
             </form>

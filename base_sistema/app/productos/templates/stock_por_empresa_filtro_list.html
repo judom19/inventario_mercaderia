@@ -1,0 +1,89 @@
+
+{% extends 'empresas_index.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %} 
+{% block extraheader %}
+<link rel="stylesheet" href="{% static 'css/filtro.css' %}">
+<script src="{% static  'Jquery/jquery-1.12.4.js' %}"></script>
+<script src="{% static  'Jquery/datatables.min.js' %}"></script>
+<script src="{% static  'Jquery/filtro.js' %}"></script>
+
+{% endblock extraheader %}
+
+{% block content %} 
+
+<div class="fondo container-fluid col-md-7 offset-1">
+			<br>
+            <div class="container-fluid">
+				<div class="card-header botones"> 
+                    <h4>Stock por empresa</h4>
+                </div>
+                <br>
+               
+                    <form method="get">
+                            
+                                    {{ filter.form.empresa_proveedor|as_crispy_field}}
+                                            
+                        <button class="botones btn-info"type="submit">Buscar</button>
+                   
+                    </form>
+                    
+               
+            </div>
+            <br>
+            <div class="container">
+                <table class="table table-info ">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>PRODUCTO</th>
+                            <th>STOCK</th>
+                        </tr>
+                        </thead>
+                    
+                </table>
+            
+                          
+            {% if object_list %}
+            {% for producto in filter.qs %}
+            
+            <div class="container">
+                    <table class="table table-hover ">
+                        <tbody>
+                           <tr>
+                               
+                                <td>{{producto.id}}</td>
+                                <td>{{producto.nombre}}</td>
+                                <td>{{producto.inventario}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+            </div>                  
+            {% endfor %}
+            {% else %}
+            <div class="card" style="width: 23rem;">
+                
+                    <!-- <img src="..." class="card-img-top" alt="..."> -->
+                    <div class="card-body">
+                        
+                        <ul class="list-group">
+                            <div class="container">
+                                    <div class="row">
+                                        <div class="col-md">
+                                            <h5 class="text-center"> 
+                                              No hay articulos
+                                            </h5>
+                                        </div>
+                                        
+                                   </div>
+                                
+                                
+                            </ul>
+                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                    </div>
+             </div >     
+            {% endif %}
+       
+</div>
+{% endblock content %}

@@ -25,6 +25,7 @@ urlpatterns = [
    	url(r'^pedido_list$', login_required(Listado_pedido.as_view()), name='pedido_list'),
     url(r'^categorias_list$', login_required(Listado_categorias.as_view()), name='categorias_list'),
     url(r'^inventario_view$', login_required(inventario_view), name='inventario_view'),
+	url(r'^buscar_producto_por_empresa$', login_required(FilterView.as_view(filterset_class=ProductoFilter,template_name='stock_por_empresa_filtro_list.html')), name='buscar_producto_por_empresa'),
 
    	
 
