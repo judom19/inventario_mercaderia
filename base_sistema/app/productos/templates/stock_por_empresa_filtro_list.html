@@ -98,10 +98,12 @@
                                                     
                                                    
                                                 </ul>
-                                              
+                                             
                                            
                                 </div>
 
+                                <br>
+                                    
                                 
                              
             {% endfor %}
@@ -119,18 +121,34 @@
                                               No hay articulos
                                             </h5>
                                         </div>
-                                        
-                                   </div>
+                                    </div>   
+                            </div>
                                 
                                 
-                            </ul>
+                        </ul>
                         <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                     </div>
-             </div > 
-            </div>    
+            </div > 
+         
             {% endif %}
-       <br>
+<br>
+<br>
+<br>
+
+       
+    Hay  {% if object_list|length > 1 %}
+    {{object_list|length}}{% comment %}
+        Numero de productos obtenidos
+    {% endcomment %}
+
+    
+    articulos encontrados...
+            {% else %}
+            {{object_list|length}}
+            articulo encontrado
+    {% endif %}
+<br>
+<br>
+
 </div>
-<br>
-<br>
 {% endblock content %}
