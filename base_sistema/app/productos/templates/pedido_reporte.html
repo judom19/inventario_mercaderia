@@ -2,17 +2,17 @@
 
 {% block content %}
 
-<table class="table  table-sm table-hover table-responsive col-md-9  offset-1" >
+<table class="botones table  table-sm table-hover table-responsive col-md-8  offset-1" >
     <thead>
       <tr class="table-primary">
                 
-                        <td>Codigo </td>
-                        <td>Producto</td>
-                        <td>Fecha De Pedido</td>
-                        <td>Unidades/Pedidas</td>
-                        
-                        <td>Opcion 1</td>
-                        <td>Opcion 2</td>
+                        <th>Codigo </th>
+                        <th>Producto</th>
+                        <th>Fecha De Pedido</th>
+                        <th>Unidades/Pedidas</th>
+                       
+                        <th>Opcion 1</th>
+                        <th>Opcion 2</th>
                         
 
                         
@@ -24,10 +24,12 @@
                 {% if object_list%}
                 {% for pedido in object_list%}
                 <tr class="text-center"">
-                    <td> {{pedido.producto_a_pedir.id}}</td>{# id del pedido de cada producto y no del articulo #}
+                    <td> {{pedido.producto_a_pedir.id}}</td>{# id del articulo y no del pedido #}
                     <td> {{pedido.producto_a_pedir}}</td>
                     <td> {{pedido.fecha_compra}}</td>
-                    <td> {{pedido.cantidad}}   </td>
+                    <td>{{pedido.cantidad}}</td>
+                   
+                   
                     <td> <a class="botones btn btn-primary" href="{% url 'productos:pedido_edit' pedido.id%}">Editar</a>
                    </td>
                    <td>

@@ -46,10 +46,10 @@ class Producto(models.Model):
 
 class Pedido_mercaderia(models.Model):# mas adelante agregare un numero de pedido, el id del producto
 # y fecha en que se realiza el pedido
-	producto_a_pedir = models.OneToOneField(Producto, blank=False)
+	producto_a_pedir = models.OneToOneField(Producto, blank=False,default="")
 	fecha_compra= models.DateTimeField(auto_now_add=True,)
 	cantidad = models.IntegerField(blank= False)
-
+	# empresa = models.ForeignKey(EmpresaProveedor, blank=False,default="")
 
 	class Meta:
 		verbose_name = "Pedido_Producto"

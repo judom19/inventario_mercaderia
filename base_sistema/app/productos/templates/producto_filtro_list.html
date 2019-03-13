@@ -2,13 +2,13 @@
 {% extends 'index_productos.html' %}
 {% load crispy_forms_tags %}
 {% load staticfiles %} 
-{% block extraheader %}
+{% comment %} {% block extraheader %}
 <link rel="stylesheet" href="{% static 'css/filtro.css' %}">
 <script src="{% static  'Jquery/jquery-1.12.4.js' %}"></script>
 <script src="{% static  'Jquery/datatables.min.js' %}"></script>
 <script src="{% static  'Jquery/filtro.js' %}"></script>
 
-{% endblock extraheader %}
+{% endblock extraheader %} {% endcomment %}
 
 {% block content %} 
 

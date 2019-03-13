@@ -1,19 +1,21 @@
-{%extends 'index_inventario.html' %}{# heredando de base_menu #}
-{% block content %}
-<div  class="col-md-5 offset-1">
-			
-		<div  id="formularios" class="fondo ">
-				<div class="card-header"> 
-                        <h4>Pedido</h4>
-                    </div>
-		    <form method="post">
-		    	{% csrf_token %}
-				{{ form.as_p }}
-				
+{% extends 'index_inventario.html' %}
+{% load crispy_forms_tags %}
 
-				<button class="botones btn-primary btn-block"type="submit">Guardar</button>
-				
-		    </form>
-		</div>     
-</div>    
-{% endblock content %}
+{% block content %}
+
+<div class="card border-primary offset-1 col-md-6 fondo">
+	<div class="card-body">
+		<h4 class="card-title card border-primary">Pedido</h4>
+		<p class="card-text text-center card border-primary col-md-10 offset-1">Compra de articulos</p>
+		<form method="post" class="card-body offset-1">
+				{% csrf_token %}
+					{{form|crispy}}
+			
+				<br>
+				<button class="botones btn-primary offset-10"type="submit">PEDIR</button>
+			
+		</form>
+	</div>
+	
+</div>
+ {% endblock content %}

@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.conf.urls import url
 from app.productos.views import index_productos,Listado_producto,Editar_producto,Borrar_producto,\
-Listado_pedido,Editar_pedido,Borrar_producto_pedido,Listado_categorias,inventario_view,Crear_producto,Crear_pedido,Detalles_producto
+Listado_pedido,Editar_pedido,Borrar_producto_pedido,Listado_categorias,inventario_view,Crear_producto,Detalles_producto,Crear_pedido
 
 from django_filters.views import FilterView
 from . filters import ProductoFilter
@@ -13,6 +13,7 @@ urlpatterns = [
     #segundo patron que buscara django el primer patron a buscar es 'productos '
     #que es el que se encuentra dentro de el archivo de URLS  globales
    	url(r'^nuevo$', login_required(Crear_producto.as_view()), name='productos_nuevo'),
+    url(r'^pedido$', login_required(Crear_pedido.as_view()), name='pedido_nuevo'),
    	url(r'^listar$', login_required(Listado_producto.as_view()), name='productos_listar'),
    	url(r'^editar/(?P<pk>\d+)/$', login_required(Editar_producto.as_view()), name='productos_editar'),
 	url(r'^productos_detail/(?P<pk>\d+)/$', login_required(Detalles_producto.as_view()), name='productos_detail'),
@@ -21,7 +22,7 @@ urlpatterns = [
    	url(r'^pedido_delete_producto/(?P<pk>\d+)/$', login_required(Borrar_producto_pedido.as_view()), name='pedido_delete_producto'),
    	url(r'^pedido_edit/(?P<pk>\d+)/$', login_required(Editar_pedido.as_view()) , name='pedido_edit'),#debe tener un id
    	#de producto hasta crear los botones en el template
-   	url(r'^pedido$', login_required(Crear_pedido.as_view()), name='pedido_nuevo'),
+	# url(r'^pedido_filtro$', login_required(FilterView.as_view(filterset_class=ProductoFilter,template_name='producto_id_filtro.html')), name='pedido_filtro'),
    	url(r'^pedido_list$', login_required(Listado_pedido.as_view()), name='pedido_list'),
     url(r'^categorias_list$', login_required(Listado_categorias.as_view()), name='categorias_list'),
     url(r'^inventario_view$', login_required(inventario_view), name='inventario_view'),

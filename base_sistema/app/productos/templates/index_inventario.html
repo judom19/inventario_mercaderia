@@ -7,8 +7,14 @@
 {% block side_bar %}
 <div class="offset-2">
 <ul class="nav nav-pills flex-column  col-md-3 ">
+  <li class="nav-item border border-secondary">
+    <a class="nav-link fondo border border-secondary" href="{% url 'productos:index_productos' %}"><h5><center>Inventarios</center></h5></a>
+</li>
     <li class="nav-item border border-secondary">
-        <a class="nav-link active border border-secondary" href="#"><h5><center> Inventario</center></h5></a>
+        <a class="dropdown-item " href="#"> Productos fuera de stock</a>
+    </li>
+    <li class="nav-item border border-secondary">
+        <a class="dropdown-item " href="#"> Ver pedidos</a>
     </li>
     <li class="nav-item border border-secondary">
         <a class="dropdown-item" href="{% url 'productos:pedido_nuevo' %}">Realizar Pedidos</a>

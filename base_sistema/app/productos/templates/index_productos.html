@@ -1,35 +1,38 @@
-
 {% extends 'base/base_menu.html' %}
-		
-		{% block title %}Productos{% endblock %}
 
- 
+{% block title %}Productos{% endblock %}
+
+
 {% block side_bar %}
 
 <div class="offset-2">
-<ul class="nav nav-pills flex-column  col-md-3 ">
+  <ul class="nav nav-pills flex-column  col-md-3 ">
     <li class="nav-item border border-secondary">
-        <a class="nav-link active border border-secondary" href="{% url 'productos:index_productos' %}"><h5><center> Productos</center></h5></a>
+      <a class="fondo nav-link  border border-secondary" href="{% url 'productos:index_productos' %}">
+        <h5>
+          <center> Productos</center>
+        </h5>
+      </a>
     </li>
     <li class="nav-item border border-secondary">
-        <a class="dropdown-item" href="{% url 'productos:productos_listar' %}">Catalogo de Productos</a>
-    </li>    
-    
+      <a class="dropdown-item" href="{% url 'productos:productos_listar' %}">Catalogo de Productos</a>
+    </li>
+
     <li class="nav-item border border-secondary">
-        <a class="dropdown-item " href="{% url 'productos:buscar_producto' %}">Ver por categorias</a>
+      <a class="dropdown-item " href="{% url 'productos:buscar_producto' %}">Ver por categorias</a>
     </li>
     <li class="nav-item border border-secondary">
-        <a class="dropdown-item" href="{% url 'productos:productos_nuevo' %}">Nuevo articulo</a>
+      <a class="dropdown-item" href="{% url 'productos:productos_nuevo' %}">Nuevo articulo</a>
     </li>
-      </div>
-    
-  </ul>
-  
+</div>
+
+</ul>
+
 </div>
 
 
-	
-        
+
+
 {% endblock side_bar%}
 
 
@@ -45,8 +48,8 @@
   </p>
 </div>
 <style>
-.jumbotron{
+  .jumbotron {
     border-radius: 10px;
-}
+  }
 </style>
 {% endblock content %}

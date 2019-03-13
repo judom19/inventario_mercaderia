@@ -72,6 +72,7 @@ class Pedido_mercaderiaForm(forms.ModelForm):#esta es la clase que se crea para 
 			#agregar campo de numero de orden
 			'producto_a_pedir',
 			'cantidad',
+			# 'empresa'
 			
 			
 
@@ -81,7 +82,7 @@ class Pedido_mercaderiaForm(forms.ModelForm):#esta es la clase que se crea para 
 		labels = {
 			'producto_a_pedir':		'Elegir Mercaderia',
 			'cantidad':				'Cuantos Articulos desea pedir?',
-		
+			# 'empresa' :				'EMPRESA'
 		
 		}
 		widgets	= {

@@ -8,7 +8,7 @@ from django.views.generic import ListView,CreateView,UpdateView,DeleteView,Detai
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-# from .filters import ProductoFilter
+from .filters import ProductoFilter
 
 
 
@@ -86,7 +86,7 @@ class Listado_categorias(ListView):
 
 
 
-# def buscar_producto(request):
+# def search(request):
 #     producto_list = Producto.objects.all()
 #     producto_filter = ProductoFilter(request.GET, queryset=producto_list)
-#     return render(request, 'producto_filtro_list.html', {'filter': producto_filter})
+#     return render(request, 'CRUD_pedido.html', {'filter': producto_filter})
