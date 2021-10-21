@@ -43,12 +43,19 @@
 
     {%endfor%}
     {%else%}
-    <h1>No hay ningun Usuario Registrado</h1>
-    <td>vacio</td>
-     <td>vacio</td>
-     <td>vacio</td>
-     <td>vacio</td>
-     <td>vacio</td>
+    <div class="container col-md-7 offset-2">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-3">No hay empresas en el sistema</h1>
+          <p class="lead">Desea agregar una empresa?</p>
+          <hr class="my-2">
+          <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{%url 'perfil:empresa'%}" role="button">Agregar</a>
+          </p>
+        </div>
+      </div>
+
+    </div>
                     
          
     {%endif%}
