@@ -1,0 +1,42 @@
+{% extends 'index_perfil.html' %}
+{% load static %}
+
+{% block content %}
+  {% block extraheader %}
+  {% endblock extraheader %}
+
+  <div class="container">
+    <table class="table table-dark table-hover table-responsive col-md-8 mt-3">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Usuario</th>
+          <th>Fecha de Creación</th>
+          <th>Última Fecha de Ingreso</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if object_list %}
+        {% for usuario in object_list %}
+        <tr>
+          <td>{{ usuario.id }}</td>
+          <td>{{ usuario.username }}</td>
+          <td>{{ usuario.date_joined }}</td>
+          <td>{{ usuario.last_login }}</td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+          <td colspan="4">
+            <h1>No hay ningún Usuario Registrado</h1>
+          </td>
+        </tr>
+        {% endif %}
+      </tbody>
+    </table>
+    
+    <div class="">
+      <a class="btn btn-secondary" href="{% url 'perfil:crear' %}">Crear un usuario</a>
+    </div>
+  </div>
+{% endblock content %}

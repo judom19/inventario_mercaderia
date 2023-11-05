@@ -1,0 +1,27 @@
+{% extends 'base/base_menu.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <style>
+            .delete {
+                background-color: #C6E3F6;
+                border-radius: 5px;
+                padding: 5px;
+                box-shadow: 5px 5px 5px #AFACAD;
+            }
+        </style>
+
+        <div class="col-md-5">
+            <div class="delete">
+                <form method="post">
+                    {% csrf_token %}
+                    <h2>¿Desea eliminar el registro {{ producto.nombre }} de la lista de pedido?</h2>
+                    <button class="btn btn-danger botones" type="submit">Si</button>
+                    <a class="btn btn-secondary botones" href="{% url 'productos:pedido_list' %}">Cancelar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

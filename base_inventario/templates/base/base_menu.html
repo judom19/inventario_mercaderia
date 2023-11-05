@@ -1,0 +1,94 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <title>
+        {% block title %}Inventario de mercadería{% endblock %}
+    </title>
+</head>
+<body>
+{% block header %}{% endblock %}
+
+{% block nav_bar %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top mb-5">
+    <a class="navbar-brand" href="{% url 'home' %}"><strong>Sistema de Inventarios</strong></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'perfil:empresas_index' %}"><strong>Empresas</strong><span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'productos:index_productos' %}"><strong>Mercadería</strong></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'productos:inventario_view' %}"><strong>Control de Inventarios</strong></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'perfil:index_perfiles' %}"><strong>Usuarios</strong></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}"><strong>Salir</strong></a>
+            </li>
+        </ul>
+        {% comment %} <form class="d-flex">
+            <input class="form-control me-2" type="search" name="busqueda" placeholder="Buscar por palabra" required>
+            <button class="btn btn-secondary" type="submit">BUSCAR</button>
+        </form> {% endcomment %}
+    </div>
+</nav>
+{% endblock nav_bar %}
+<br><br><br>
+
+{% if messages %}
+    {% for message in messages %}
+        <div id="msg" class="alert alert-info">
+            {{ message }}
+            <br>
+        </div>
+    {% endfor %}
+{% endif %}
+<script>
+    setTimeout(function () {
+        document.querySelector('#msg').remove();
+    }, 3000);
+</script>
+
+
+<div class="row">
+    <div class="col-md-2">
+        {% block side_bar %}
+        {% endblock side_bar %}
+    </div>
+
+    <div class="col-md-6 offset-1">
+        {% block content %}
+        {% endblock content %}
+    </div>
+</div>
+
+<br><br><br>
+
+{% block footer %}
+<div id="footer" class="row fixed-bottom bg-dark text-center ">    
+    <p class="p-2">
+        <h6 class="text-white">Creado por: Julio Dominguez</h6>
+    </p>
+</div>
+
+
+
+{% endblock %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background-color: #f7f7f7;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fff;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Usuario</th>
+                <th>Empresa</th>
+                <th>NIT</th>
+                <th>Teléfono</th>
+                <th>Dirección</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if proveedores %}
+                {% for proveedor in proveedores %}
+                    <tr>
+                        <td>{{ proveedor.id }}</td>
+                        <td>{{ proveedor.usuario.username }}</td>
+                        <td>{{ proveedor.empresa_proveedor.nombre_empresa }}</td>
+                        <td>{{ proveedor.nit }}</td>
+                        <td>{{ proveedor.telefono }}</td>
+                        <td>{{ proveedor.direccion }}</td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="5">No hay proveedores</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</body>
+</html>

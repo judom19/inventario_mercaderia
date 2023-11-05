@@ -1,0 +1,64 @@
+{% extends 'empresas_index.html' %} 
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 offset-2 mt-3">
+            <div id="formularios" class="bg-dark p-3 text-light border rounded border-3 border-dark">
+                <form method="post">
+                    {% csrf_token %} 
+                    <div class="container">
+                        <h3 class="text-center">Registro de proveedores</h3>
+                        <p>Por favor, rellena este formulario para registrar un proveedor.</p>
+                        <hr>
+
+                        <div class="form-group mb-1">
+                            <label for="{{ form.usuario.id_for_label }}" class="form-label p-1">Nombre de Usuario:</label>
+                            <div class="p-1 col-6">
+                                {{ form.usuario }}
+                            </div>
+                        </div>
+                        
+                        <div class="form-group mb-1">
+                            <label for="{{ form.empresa_proveedor.id_for_label }}" class="form-label">Empresa:</label>
+                            <div class="p-1 col-6">
+                                {{ form.empresa_proveedor }}
+                            </div>
+                        </div>
+                    
+                        <div class="form-group mb-1">
+                            <label for="{{ form.direccion.id_for_label }}" class="form-label">Direccion:</label>
+                            <div class="p-1 col-6">
+                                {{ form.direccion }}
+                            </div>
+                        </div>    
+                        
+                        <div class="form-group mb-1">
+                            <label for="{{ form.telefono.id_for_label }}" class="form-label">Telefono:</label>
+                            <div class="p-1 col-6">
+                                {{ form.telefono }}
+                            </div>
+                        </div>   
+
+                        <div class="form-group mb-1">
+                            <label for="{{ form.dui.id_for_label }}" class="form-label">DUI:</label>
+                            <div class="p-1 col-6">
+                                {{ form.dui }}
+                            </div>
+                        </div>  
+
+                        <div class="form-group mb-1">
+                            <label for="{{ form.nit.id_for_label }}" class="form-label">NIT:</label>
+                            <div class="p-1 col-6">
+                                {{ form.nit }}
+                            </div>
+                        </div>  
+                        <hr>
+                        <button type="submit" class="btn btn-secondary btn-block botones">Registrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

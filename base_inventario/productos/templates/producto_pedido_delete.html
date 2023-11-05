@@ -1,0 +1,16 @@
+{% extends 'base/base_menu.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 offset-md-5">
+            <form method="post">
+                {% csrf_token %}
+                <h2>¿Desea eliminar el registro {{ object.producto_a_pedir }} de la lista de pedido?</h2>
+                <button class="btn btn-danger botones" type="submit">Si</button>
+                <a class="btn btn-secondary botones" href="{% url 'productos:pedido_list' %}">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

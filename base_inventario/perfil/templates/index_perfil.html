@@ -1,0 +1,31 @@
+{% extends 'base/base_menu.html' %}
+{% load static %}
+
+{% block title %}Usuarios{% endblock %}
+
+{% block side_bar %}
+<div class="container bg-dark p-3 border rounded border-3 border-dark mt-3 text-white">
+    <ul class="nav flex-column">
+        <h3 class="container">Usuarios</h3>
+        <li class="nav-item">
+            <a class="btn btn-dark" href="{% url 'perfil:crear' %}">Crear Usuario</a>
+        </li>
+        <li class="nav-item">
+            <a class="btn btn-dark" href="{% url 'perfil:usuario_list' %}">Lista de Usuarios</a>
+        </li>
+    </ul>
+</div>
+
+{% endblock %}
+
+{% block content %}
+    <div class="container bg-dark p-3 border rounded border-3 border-dark text-light">
+        <h4 class="display-4">Consulta de Usuarios</h4>
+        <p class="">Cómo puedes encontrar nuestro manual de usuario.</p>
+        <p class="">Si estás logeado, recuerda cerrar sesión al terminar tu trabajo.</p>
+        <br>
+        <p class="lead">
+            <a class="btn btn-secondary btn-sm" href="#" role="button">Leer más...</a>
+        </p>
+    </div>
+{% endblock content %}

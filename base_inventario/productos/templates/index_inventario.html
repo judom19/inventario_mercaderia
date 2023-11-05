@@ -1,0 +1,38 @@
+{% extends 'index_productos.html' %}
+{% load static %}
+
+{% block title %}Inventario{% endblock %}
+
+{% block side_bar %}
+<div class="container bg-dark p-3 border rounded border-3 border-dark mt-3 text-white">
+    <ul class="nav flex-column">
+        <h3 class="container">Stock Mercadería</h3>
+        <li class="nav-item">
+            <a class="btn btn-dark" href="{% url 'productos:pedido_nuevo' %}">Realizar Pedidos</a>
+        </li>
+        <li class="nav-item">
+            <a class="btn btn-dark" href="{% url 'productos:categorias_list' %}">Categorias</a>
+        </li>
+        <li class="nav-item">
+            <a class="btn btn-dark" href="{% url 'productos:pedido_list' %}">Ver Pedido</a>
+        </li>
+    </ul>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container bg-dark p-3 border rounded border-3 border-dark mt-3 text-white">
+    <h4 class="display-4">Consulta de Inventario</h4>
+    <p class="lead">Cómo puedes encontrar nuestro manual de usuario.</p>
+    <hr class="my-4">
+    <p class="lead">Si estás logeado, recuerda cerrar sesión al terminar tu trabajo.</p>
+    <p class="lead">
+        <a class="btn btn-secondary btn-sm" href="#" role="button">Leer más...</a>
+    </p>
+</div>
+<style>
+    .jumbotron {
+        border-radius: 10px;
+    }
+</style>
+{% endblock content %}

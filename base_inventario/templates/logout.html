@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Has cerrado sesión{% endblock %}
+
+{% block content %}
+<div class="container col-md-8 offset-md-2 mt-5">
+    <div class="jumbotron">
+        <h2>Sesión Cerrada</h2>
+        <p class="lead">Puedes encontrar nuestro manual de usuario aquí.</p>
+        <hr class="my-4">
+        <p class="lead">Si estás logueado, recuerda cerrar sesión al terminar tu trabajo.</p>
+        <br>
+        <div class="d-flex justify-content-center">
+            <a href="{% url 'login' %}" class="btn btn-primary">Iniciar Sesión</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

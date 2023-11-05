@@ -1,0 +1,61 @@
+{% block content %}
+<div class="container">
+    <h2>Lista de Pedido</h2>
+    <table class="table table-sm table-hover table-responsive col-md-9 offset-1 table-dark p-3">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Producto</th>
+                <th>Fecha De Pedido</th>
+                <th>UND</th>
+                <th>Empresa</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if pedidos %}
+                {% for pedido in pedidos %}
+                    <tr>
+                        <td>{{ pedido.producto_a_pedir.id }}</td> 
+                        <td>{{ pedido.producto_a_pedir.nombre }}</td> 
+                        <td>{{ pedido.fecha_compra }}</td>
+                        <td>{{ pedido.cantidad }}</td>
+                        <td>
+                            {{ pedido.producto_a_pedir.empresa_proveedor }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr class="text-center">
+                    <td colspan="5">No hay ningún Producto en pedidos</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+<style>
+    /* Estilos para el tema oscuro */
+body {
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+}
+
+.table-dark {
+    background-color: #333;
+    color: #fff;
+}
+
+.table-dark th {
+    background-color: #222;
+    color: #fff;
+}
+
+.table-dark td {
+    background-color: #444;
+    color: #fff;
+}
+h2{
+    text-align: center;
+}
+</style>
+{% endblock content %}

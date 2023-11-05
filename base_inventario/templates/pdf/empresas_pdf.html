@@ -1,0 +1,57 @@
+{% block content %}
+<h2>Listado de Empresas</h2>
+<table class="table table-sm table-hover table-responsive col-md-9 offset-1 table-dark p-3" >
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>NIT</th>
+            <th>Telefono</th>
+            <th>Contacto</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if empresas %}
+            {% for empresa in empresas %}
+                <tr>
+                    <td><center>{{empresa.id}}</center></td>
+                    <td><center>{{empresa.nombre_empresa}}</center></td>
+                    <td><center>{{empresa.nit}}</center></td>
+                    <td><center>{{empresa.telefono}}</center></td>
+                    <td><center>{{empresa.contacto_email}}</center></td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <h6>No hay empresas registradas</h6>
+        {% endif %}
+    </tbody>
+    </table>
+
+    <style>
+        /* Estilos para el tema oscuro */
+        body {
+            background-color: #333;
+            color: #fff;
+            padding: 5px;
+        }
+
+        .table-dark {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .table-dark th {
+            background-color: #222;
+            color: #fff;
+        }
+
+        .table-dark td {
+            background-color: #444;
+            color: #fff;
+        }
+
+        h2 {
+            text-align: center;
+        }
+    </style>
+{% endblock content %}

@@ -1,0 +1,17 @@
+{% extends 'empresas_index.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 offset-2">
+            <div class="delete">
+                <form method="post">
+                    {% csrf_token %} {# token de seguridad #}
+                    <h2><p class="help-block"></p>¿Desea eliminar el registro {{ object.nombre_empresa }} de la base de datos?</p></h2>
+                    <button class="btn btn-danger botones" type="submit">Sí</button>
+                    <a class="btn btn-default" href="{% url 'perfil:empresas_list' %}">Cancelar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

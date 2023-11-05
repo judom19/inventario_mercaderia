@@ -1,0 +1,70 @@
+{% extends 'index_productos.html' %}
+
+{% block content %}
+<div class="container col-md-10 mt-3 ">
+    <div id="formularios" >
+        <div class="card bg-dark text-white">
+            <div class="card-header bg-dark text-white">
+                <h3 class="text-center">Crear Articulo</h3>
+            </div>
+            <form method="post" class="card-body bg-dark text-white">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre Articulo</label>
+                            <input name="nombre" type="text" value="{{ object.nombre }}" class="form-control" id="nombre" required>
+                        </div>
+        
+                        <div class="mb-3">
+                            <label for="descripcion" class="form-label">Descripcion</label>
+                            {{ form.descripcion }}
+                        </div>
+        
+                        <div class="mb-3">
+                            <label for="marca" class="form-label">Marca</label>
+                            <input name="marca" type="text" value="{{ object.marca }}" class="form-control" id="marca" required>
+                        </div>
+                    </div>
+    
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="precio_unitario" class="form-label">Precio Unitario</label>
+                            <input name="precio_unitario" type="text" value="{{ object.precio_unitario }}" class="form-control" id="precio_unitario" required>
+                        </div>
+        
+                        <div class="mb-3">
+                            <label for="inventario" class="form-label">Stock inicial</label>
+                            <input name="inventario" type="number" value="{{ object.inventario }}" class="form-control" id="inventario">
+                        </div>
+        
+                        <div class="mb-3">
+                            <label for="factor_de_empaque" class="form-label">Factor de empaque</label>
+                            <select name="factor_de_empaque" class="form-select" id="factor_de_empaque">
+                                <option type="select" {{ form.factor_de_empaque }}
+                            </select>
+                        </div>
+        
+                        <div class="mb-3">
+                            <label for="empresa_proveedor" class="form-label">Empresa</label>
+                            <select name="empresa_proveedor" class="form-select" id="empresa_proveedor">
+                                <option type="select" {{ form.empresa_proveedor }}
+                            </select>
+                        </div>
+        
+                        <div class="mb-3">
+                            <label for="categoria" class="form-label">Categoría</label>
+                            <p>{% for categoria in form.categoria %}<br>{{ categoria }}{% endfor %}</p>
+                        </div>
+        
+                        <p class="help-block">Antes de guardar la información asegúrese de que los datos son correctos.</p>
+        
+                        <button type="submit" class="btn btn-primary btn-block botones">Guardar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<br>
+{% endblock content %}

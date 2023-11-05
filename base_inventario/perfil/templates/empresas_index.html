@@ -1,0 +1,41 @@
+{% extends 'base/base_menu.html' %}
+{% load static %}
+
+{% block title %}Empresas{% endblock %}
+
+{% block side_bar %} 
+<div class="container bg-dark p-3 border rounded border-3 border-dark mt-3 text-white">
+    <ul class="nav flex-column">
+        <h3 class="container">Empresas</h3>
+        
+        <li class="nav-item">
+            <a class="btn btn-dark" href="{% url 'perfil:empresas_list' %}">Listado de Empresas</a>
+        </li>
+        <li class="nav-item">
+            <a class="btn btn-dark" href="{% url 'perfil:empresa' %}">Registrar Empresa</a>
+        </li>
+        <li class="nav-item">
+            <a class="btn btn-dark" href="{% url 'perfil:proveedores_list' %}">Contacto de Proveedores</a>
+        </li>
+        <li class="nav-item">
+            <a class="btn btn-dark" href="{% url 'productos:buscar_producto_por_empresa' %}">Stock por empresa</a>
+        </li>
+    </ul>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="container bg-dark p-3 border rounded border-3 border-dark text-light">
+        <h4 class="display-4">Consulta de empresas y contactos!</h4>
+        <p class="lead">Cómo puedes encontrar nuestro manual de usuario.</p>
+        <hr class="my-4">
+        <p class="lead">Si estás logeado, recuerda cerrar sesión al terminar tu trabajo.</p>
+        <br>
+        <p class="lead">
+            <a class="btn btn-secondary" href="#" role="button">Leer más...</a>
+        </p>
+    </div>
+</div>
+</style>
+{% endblock content %}

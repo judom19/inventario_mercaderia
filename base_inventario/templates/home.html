@@ -1,0 +1,26 @@
+{% extends 'base/base_menu.html' %}
+
+{% block title %}Ingresar{% endblock %}
+
+<div class="container">
+    <div class="row">
+        {% block content %}
+            <div class="col-md-8 offset-md-2">
+                <div class="jumbotron">
+                    {% if user.is_authenticated %}
+                        <h4 class="display-4">Bienvenid@ {{ user.username }}</h4>
+                        <p class="lead">Cómo puedes encontrar nuestro manual de usuario.</p>
+                        <hr class="my-4">
+                        <p class="lead">Si estás logeado, recuerda cerrar sesión al terminar tu trabajo.</p>
+                        <br>
+                        <p class="lead">
+                            <a class="btn btn-primary btn-lg" href="{% url 'logout' %}" role="button">Cerrar sesión</a>
+                        </p>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="btn btn-primary">Ingresar</a>
+                    {% endif %}
+                </div>
+            </div>
+        {% endblock content %}
+    </div>
+</div>

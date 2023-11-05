@@ -1,0 +1,90 @@
+{% extends 'index_productos.html' %}
+{% load static %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            <input type="text" id="searchInput" class="form-control" placeholder="Buscar artículos...">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <table class="table table-dark table-hover table-responsive mt-3" id="productosTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Marca</th>
+                <th>Precio/Unidad</th>
+                <th>Stock</th>
+                <th>Categorías</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+                <th>Ver detalles</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if object_list %}
+            {% for producto in object_list %}
+            <tr>
+                <td>{{ producto.id }}</td>
+                <td>{{ producto.nombre }}</td>
+                <td>{{ producto.marca }}</td>
+                <td>{{ producto.precio_unitario }}</td>
+                <td>{{ producto.inventario }}</td>
+                <td>
+                    {% for categoria in producto.categoria.all %}
+                    |{{ categoria }}|
+                    {% endfor %}
+                </td>
+                <td>
+                    <a class="btn btn-primary" href="{% url 'productos:productos_editar' producto.id %}">Editar</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" href="{% url 'productos:productos_eliminar' producto.id %}">Eliminar</a>
+                </td>
+                <td>
+                    <a class="btn btn-info" href="{% url 'productos:productos_detail' producto.id %}">Detalles</a>
+                </td>
+            </tr>
+            {% endfor %}
+            {% else %}
+            <tr>
+                <td colspan="10">No hay productos disponibles en el catálogo</td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+
+<div class="container">
+    <a class="btn btn-success" href="{% url 'productos:productos_nuevo' %}">Nuevo Producto</a>
+</div>
+
+<script type="text/javascript">
+    // Función para realizar la búsqueda de artículos
+    function buscarArticulos() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("productosTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1]; // Columna de Nombre
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+    document.getElementById("searchInput").addEventListener("input", buscarArticulos);
+</script>
+
+{% endblock content %}

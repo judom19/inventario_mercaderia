@@ -1,0 +1,52 @@
+{% extends 'empresas_index.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="container bg-dark p-3 border rounded border-3 border-dark mt-3 text-white">
+            <div class="jumbotron">
+                <h3 class="display-5">Consulta de contactos de proveedores</h3>
+                <br>
+                <table class="table table-dark table-hover table-responsive col-md-8 mt-3 text-light">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            
+                            <th>Usuario</th>
+                            <th>Empresa</th>
+                            <th>NIT</th>
+                            <th>Telefono</th>
+                            <th>Direccion</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% if proveedores %}
+                        {% for proveedor in proveedores %}
+                        <tr>
+                            <td>{{ proveedor.id }}</td>
+                            <td>{{ proveedor.usuario.username }}</td>
+                            <td>{{ proveedor.empresa_proveedor.nombre_empresa }}</td>
+                            <td>{{ proveedor.nit }}</td>
+                            <td>{{ proveedor.telefono }}</td>
+                            <td>{{ proveedor.direccion }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% else %}
+                        <tr>
+                            <td colspan="8" class="text-center display-6">
+                                No existen proveedores registrados.
+                            </td>
+                        </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+                <div class="container">
+                    <a class="btn btn-primary" href="{% url 'perfiles_pdf' %}">Reporte de proveedores</a>
+                    <a class="btn btn-success" href="{% url 'perfil:proveedores_crear' %}">Registrar un proveedor</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

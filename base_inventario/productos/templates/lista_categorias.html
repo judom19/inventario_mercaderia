@@ -1,0 +1,30 @@
+{% extends 'index_inventario.html' %}
+
+{% block content %}
+<div class="row">
+    <table class="table table-dark table-hover table-responsive col-md-8 mt-3">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Stock</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if categorias %}
+                {% for categoria in categorias %}
+                    <tr>
+                        <td>{{ categoria.id }}</td>
+                        <td><a class="btn btn-dark" href="{% url 'productos:productos_por_categoria' categoria.id %}">{{ categoria.nombre }}</a></td>
+                        <td>{{ categoria.num_articulos }}</td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="3">No hay categorías registradas</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
